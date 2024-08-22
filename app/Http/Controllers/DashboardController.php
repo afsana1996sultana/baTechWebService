@@ -18,7 +18,6 @@ class DashboardController extends Controller
         if(Auth::user()->user_role == 1){
             $information = Information::orderBy('id','desc')->get();
         }else{
-            //$information = Information::where('created_by',Auth::user()->id)->orderBy('id','desc')->get();
             $information = Information::orderBy('id','desc')->get();
         }
 

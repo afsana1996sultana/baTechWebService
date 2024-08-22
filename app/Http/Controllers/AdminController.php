@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Information;
+use App\Models\Informationbackup;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,9 @@ class AdminController extends Controller
         $categories = Category::count('id');
         $products = Product::count('id');
         $information = Information::count('id');
+        $information_backup = Informationbackup::count('id');
         $users = User::count('id');
-        return view('admin.index',compact('categories', 'products', 'information','users'));
+        return view('admin.index',compact('categories', 'products', 'information','users', 'information_backup'));
     }
 
     public function index()

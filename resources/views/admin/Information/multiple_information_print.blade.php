@@ -72,26 +72,14 @@
         position: relative;
         top: 3px;
     }
-
-    .product__info table tbody tr th {
-        font-size: 15px;
-        padding:0;
-    }
     .customer__info {
         margin-top: 10px;
-    }
-    .product__info table tbody tr td {
-        font-size: 14px;
-    }
-    p.najmul a {
-        font-weight: 600;
     }
 
 </style>
 
 <body style="width: 175px;margin: auto;">
     @foreach ($informations as $information)
-        {{-- <div class="wrapper" style="background-color: white;border: 1px solid #ddd; padding: 10px;height:95vh "> --}}
         <div style="display: flex; justify-content: space-between; height:90vh;">
             <ul class="customer__info" style="margin: 0;">
                 <li style="font-size: 16px; font-weight: bold;">{{ $information->ref_no ?? '' }}</li>

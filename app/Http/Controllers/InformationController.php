@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Information;
+use App\Models\Informationbackup;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\InformationImport;
 use Illuminate\Http\Request;
@@ -39,17 +40,21 @@ class InformationController extends Controller
         $status = 1;
         $informations = Information::whereIn('id', $ids)->get();
         $request->session()->put('informations', $informations);
-
-        // Delete the information from the database
+        foreach ($informations as $information) {
+            $backup = new InformationBackup();
+            $backup->fill($information->toArray());
+            $backup->save();
+        }
         Information::whereIn('id', $ids)->delete();
 
         return response()->json([
             'status' => 'success',
-            'message' => "Information are Printed",
+            'message' => "Information has been printed successfully.",
             'informations' => $informations,
             'redirect_url' => route('information.multiple.informationprint.page'),
         ]);
     }
+
 
     public function multiple_information_print_page(Request $request)
     {

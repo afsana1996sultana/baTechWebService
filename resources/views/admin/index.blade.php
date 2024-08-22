@@ -30,10 +30,22 @@
                             <div class="card-body">
                                 <h5 class="text-muted">All Priented Information</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">{{ $information ?? "" }}</h1>
+                                    <h1 class="mb-1">{{ $information_backup ?? "" }}</h1>
                                 </div>
                             </div>
                             <div id="sparkline-revenue"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-muted">All Information</h5>
+                                <div class="metric-value d-inline-block">
+                                    <h1 class="mb-1">{{ $information ?? "" }}</h1>
+                                </div>
+                            </div>
+                            <div id="sparkline-revenue1"></div>
                         </div>
                     </div>
 
