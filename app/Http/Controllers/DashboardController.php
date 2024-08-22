@@ -16,9 +16,9 @@ class DashboardController extends Controller
     public function index()
     {
         if(Auth::user()->user_role == 1){
-            $information = Information::orderBy('id','desc')->get();
+            $information = Information::orderBy('id','asc')->get();
         }else{
-            $information = Information::orderBy('id','desc')->get();
+            $information = Information::orderBy('id','asc')->get();
         }
 
         return view('admin.Information.index', compact('information'));

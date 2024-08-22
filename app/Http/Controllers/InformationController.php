@@ -14,7 +14,7 @@ class InformationController extends Controller
     public function index()
     {
         $startIndex = 0;
-        $information = Information::orderBy('id', 'desc')->get();
+        $information = Information::orderBy('id', 'asc')->get();
         return view('admin.Information.index', compact('information','startIndex'));
     }
 
